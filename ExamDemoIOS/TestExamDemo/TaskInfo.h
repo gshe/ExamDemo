@@ -11,4 +11,5 @@
 @interface TaskInfo : NSObject
 @property (nonatomic, assign) int taskId;
 @property (nonatomic, assign) int nodeId;
+@property (nonatomic, assign) int consumption;
 @end

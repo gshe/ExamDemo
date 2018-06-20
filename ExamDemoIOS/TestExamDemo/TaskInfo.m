@@ -13,6 +13,6 @@
 #pragma mark - NSObject
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, nodeId: %d, taskId: %d", NSStringFromClass([self class]), self, self.nodeId, self.taskId];
+    return [NSString stringWithFormat:@"<%@: %p, nodeId: %d, taskId: %d, consumption: %d", NSStringFromClass([self class]), self, self.nodeId, self.taskId, self.consumption];
 }
 @end
