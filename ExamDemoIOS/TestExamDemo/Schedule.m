@@ -304,15 +304,23 @@
     }
     
     [scheduleNodes sortUsingComparator:^NSComparisonResult(TempSchedule  *_Nonnull obj1, TempSchedule * _Nonnull obj2) {
-        if (obj1.sum <= obj2.sum){
+        if (obj1.sum < obj2.sum){
             return NSOrderedAscending;
-        }else{
+        }else if (obj1.sum == obj2.sum){
+            if (obj1.scheduleTasks.count <= obj2.scheduleTasks.count){
+                return NSOrderedAscending;
+            }else{
+                return NSOrderedDescending;
+            }
+        }
+        else{
             return NSOrderedDescending;
         }
     }];
     
     for (int i=0; i< scheduleNodes.count; i++) {
         TempSchedule *tasks1 = scheduleNodes[i];
+        tasks1.nodeId = self.allNodes[i].intValue;
         for (int j=i+1; j< scheduleNodes.count; j++) {
             TempSchedule *tasks2 = scheduleNodes[j];
             [self swapIfEqual:tasks1.scheduleTasks array2:tasks2.scheduleTasks];
