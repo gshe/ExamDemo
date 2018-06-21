@@ -12,6 +12,7 @@
 		5A44DAFC20DB4E4A0094133C /* TestScheduleTask1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44DAF920DB4E4A0094133C /* TestScheduleTask1.m */; };
 		5A44DAFD20DB4E4A0094133C /* TestScheduleTask3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44DAFA20DB4E4A0094133C /* TestScheduleTask3.m */; };
 		5A44DAFE20DB4E4A0094133C /* TestScheduleTask2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44DAFB20DB4E4A0094133C /* TestScheduleTask2.m */; };
+		5A44DB4820DB75600094133C /* TestExamDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44DB4720DB75600094133C /* TestExamDemo.m */; };
 		5ADB10C220CACAC7006DDD3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB10C120CACAC7006DDD3E /* main.m */; };
 		5ADB10EA20CAD07F006DDD3E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB10D520CACCCE006DDD3E /* Schedule.m */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		5A44DAF920DB4E4A0094133C /* TestScheduleTask1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScheduleTask1.m; sourceTree = "<group>"; };
 		5A44DAFA20DB4E4A0094133C /* TestScheduleTask3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScheduleTask3.m; sourceTree = "<group>"; };
 		5A44DAFB20DB4E4A0094133C /* TestScheduleTask2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScheduleTask2.m; sourceTree = "<group>"; };
+		5A44DB4720DB75600094133C /* TestExamDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestExamDemo.m; sourceTree = "<group>"; };
 		5ADB10BE20CACAC7006DDD3E /* ExamDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ExamDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB10C120CACAC7006DDD3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5ADB10CC20CACC42006DDD3E /* TestExamDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestExamDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				5A44DAF520D39E310094133C /* TaskInfo.m */,
 				5ADB10D420CACCCE006DDD3E /* Schedule.h */,
 				5ADB10D520CACCCE006DDD3E /* Schedule.m */,
+				5A44DB4720DB75600094133C /* TestExamDemo.m */,
 				5A44DAF720DB4D600094133C /* TestScheduleTask.m */,
 				5A44DAF920DB4E4A0094133C /* TestScheduleTask1.m */,
 				5A44DAFB20DB4E4A0094133C /* TestScheduleTask2.m */,
@@ -276,6 +279,7 @@
 				5A44DAF620D39E310094133C /* TaskInfo.m in Sources */,
 				5A44DAF820DB4D600094133C /* TestScheduleTask.m in Sources */,
 				5A44DAFC20DB4E4A0094133C /* TestScheduleTask1.m in Sources */,
+				5A44DB4820DB75600094133C /* TestExamDemo.m in Sources */,
 				5A44DAFD20DB4E4A0094133C /* TestScheduleTask3.m in Sources */,
 				5ADB10EA20CAD07F006DDD3E /* Schedule.m in Sources */,
 				5A44DAFE20DB4E4A0094133C /* TestScheduleTask2.m in Sources */,

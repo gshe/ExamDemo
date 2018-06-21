@@ -142,8 +142,16 @@
     if (!tasks){
         return kE016;
     }
+    NSMutableArray *tmpArray = [self.allTasks mutableCopy];
+    [tmpArray sortUsingComparator:^NSComparisonResult(TaskInfo * _Nonnull obj1, TaskInfo * _Nonnull obj2) {
+        if (obj1.taskId < obj2.taskId){
+            return NSOrderedAscending;
+        }else{
+            return NSOrderedDescending;
+        }
+    }];
     
-    for (TaskInfo *task in self.allTasks) {
+    for (TaskInfo *task in tmpArray) {
         [tasks addObject:task];
     }
     return kE015;
@@ -151,24 +159,6 @@
 
 
 #pragma mark schedule algorithm
--(NSMutableArray<TaskInfo *> *) findMin:(NSMutableArray *)xx{
-    int min = 99999;
-    NSMutableArray *ret = nil;
-    
-    for (NSMutableArray *array in xx) {
-        int sum = 0;
-        for (TaskInfo *task in array) {
-            sum += task.consumption;
-        }
-        if (sum < min){
-            ret = array;
-            min = sum;
-        }
-    }
-    
-    return ret;
-}
-
 -(void)swapIfEqual:(NSMutableArray *)array1 array2:(NSMutableArray *)array2{
     for (NSUInteger i = 0; i< array1.count; i++) {
         TaskInfo *task1 = array1[i];
@@ -181,76 +171,6 @@
              }
          }
     }
-}
-
-- (BOOL) scheduleAlgorithmWithThreshold:(int)threshold{
-    BOOL isValid = YES;
-    NSMutableArray *tmpArray = [self.allTasks mutableCopy];
-    [tmpArray sortUsingComparator:^NSComparisonResult(TaskInfo * _Nonnull obj1, TaskInfo * _Nonnull obj2) {
-        if (obj1.consumption < obj2.consumption){
-            return NSOrderedDescending;
-        }else{
-            return NSOrderedAscending;
-        }
-    }];
-    
-    [self.allNodes sortUsingComparator:^NSComparisonResult(NSNumber * _Nonnull obj1, NSNumber * _Nonnull obj2) {
-        if (obj1.intValue < obj2.intValue){
-            return NSOrderedAscending;
-        }else{
-            return NSOrderedDescending;
-        }
-    }];
-    
-    NSMutableArray *xx = [NSMutableArray array];
-    for (NSUInteger i=0; i<self.allNodes.count; i++) {
-        NSMutableArray *array = [NSMutableArray array];
-        [array addObject:tmpArray[i] ];
-        [xx addObject:array];
-    }
-    
-    for(NSUInteger i = self.allNodes.count; i < tmpArray.count; i++){
-        TaskInfo *task = tmpArray[i];
-        NSMutableArray *array = [self findMin:xx];
-        [array addObject:task];
-    }
-   
-    for (int i=0; i<xx.count; i++) {
-        NSMutableArray *tasks1 = xx[i];
-        for (int j=i+1; j<xx.count; j++) {
-            NSMutableArray *tasks2 = xx[j];
-            [self swapIfEqual:tasks1 array2:tasks2];
-        }
-   }
-    
-    NSMutableArray *sums = [NSMutableArray array];
-    for (NSUInteger i = 0; i<xx.count; i++) {
-        int nodeId = self.allNodes[i].intValue;
-        NSMutableArray *array = xx[i];
-        int sum = 0;
-        for (TaskInfo *task in array) {
-            task.nodeId = nodeId;
-            sum += task.consumption;
-        }
-        [sums addObject:@(sum)];
-    }
-    
-    for (NSUInteger i = 0; i<sums.count; i++) {
-        NSNumber *a = sums[i];
-        for (NSUInteger j = i+1; j< sums.count; j++) {
-            NSNumber *b = sums[j];
-            if (abs(a.intValue - b.intValue) > threshold){
-                isValid = NO;
-                break;
-            }
-        }
-        
-        if (!isValid){
-            break;
-        }
-    }
-    
-    return isValid;
 }
 
 -(TempSchedule *) findMin2:(NSMutableArray *)xx{
